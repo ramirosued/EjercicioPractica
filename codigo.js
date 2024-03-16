@@ -7,21 +7,21 @@ let mayoresNotasMateria=document.getElementById("mayoresNotasMateria")
 
 let validacion1 =  validar1 = (nota)=>{
     if(nota.value>10||nota.value<0) {
-        alert('mal el numero');
+        alert('Los numeros son incorrectos');
         validacion1 = false;
     }else validacion1= true
     return validacion1;
 }
 let validacion2 =  validar2 = (nota)=>{
     if(nota.value>10||nota.value<0) {
-        alert('mal el numero');
+        alert('Los numeros son incorrectos');
         validacion2 = false;
     }else validacion2= true
     return validacion2;
 }
 let validacion3 =  validar3 = (nota)=>{
     if(nota.value>10||nota.value<0) {
-        alert('mal el numero');
+        alert('Los numeros son incorrectos');
         validacion3 = false;
     }else validacion3= true
     return validacion3;
@@ -64,6 +64,10 @@ if(validacion1===true && validacion2===true && validacion3===true){
 
 document.getElementById("botonMayorNota").onclick = () => {
     let Materias= "La materia con mayor nota es: ";
+    validar1(matematica);
+    validar2(lengua);
+    validar3(efsi);
+    if(validacion1===true && validacion2===true && validacion3===true){
 
     if(matematica.value>=lengua.value && matematica.value>=efsi.value)
     {
@@ -88,5 +92,5 @@ document.getElementById("botonMayorNota").onclick = () => {
     }else Materias += "Efsi"
     mayoresNotasMateria.innerText=Materias;
     mayoresNotasMateria.style.color="blue";
-
+}
 }

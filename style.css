@@ -16,6 +16,7 @@ body {
 
 h3 {
     margin-bottom: 10px;
+    text-align: center;
 }
 
 input[type="text"] {
@@ -53,6 +54,5 @@ button:hover {
     display: flex;
 justify-content: center;}
 #imagen {
-    height: 200px;
-    max-width: 100%;
+    height: 180px;
 }

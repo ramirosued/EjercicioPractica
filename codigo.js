@@ -1,47 +1,35 @@
 const matematica=document.getElementById('notaMatematica');
 const lengua=document.getElementById('notaLengua');
 const efsi=document.getElementById('notaEfsi');
-const notas =[matematica,lengua,efsi];
 const resultado=document.getElementById('resultado');
-const imagen=document.getElementById('imagen');
 let mayoresNotasMateria=document.getElementById("mayoresNotasMateria");
+const imagen=document.getElementById('imagen');
 
 let posible;
+
+function validarNota(inputNota){
+    if(inputNota.value>10||inputNota.value<0||isNaN(inputNota.value)){
+        inputNota.style.color="red";
+        inputNota.style.borderColor="red";
+        posible=false;
+    }else{
+        inputNota.style.color="green";
+        inputNota.style.borderColor="green";
+        posible=true;
+    }
+}
+
 matematica.onkeyup=()=>{
-    if(matematica.value>10||matematica.value<0 || isNaN(matematica.value)==true){
-        matematica.style.color="red";
-        matematica.style.borderColor="red"
-        posible = false;
-    }else{
-        matematica.style.color="green";
-        matematica.style.borderColor="green"
-        posible =true;
-    } 
+    validarNota(matematica)
 }
-
 lengua.onkeyup=()=>{
-    if(lengua.value>10||lengua.value<0 || isNaN(lengua.value)==true){
-        lengua.style.color="red";
-        lengua.style.borderColor="red"
-        posible = false;
-    }else{
-        lengua.style.color="green";
-        lengua.style.borderColor="green"
-        posible =true;
-    } 
+    validarNota(lengua)
+}
+efsi.onkeyup=()=>{
+    validarNota(efsi)
 }
 
-efsi.onkeyup=()=>{
-    if(efsi.value>10||efsi.value<0 || isNaN(efsi.value)==true){
-        efsi.style.color="red";
-        efsi.style.borderColor="red"
-        posible = false;
-    }else{
-        efsi.style.color="green";
-        efsi.style.borderColor="green"
-        posible =true;
-    } 
-}
+
 document.getElementById("botonPromedio").onclick = () => {
 let promedio;
 if(posible===true){

@@ -8,7 +8,7 @@ let mayoresNotasMateria=document.getElementById("mayoresNotasMateria");
 
 let posible;
 matematica.onkeyup=()=>{
-    if(matematica.value>10||matematica.value<0){
+    if(matematica.value>10||matematica.value<0 || isNaN(matematica.value)==true){
         matematica.style.color="red";
         matematica.style.borderColor="red"
         posible = false;
@@ -20,7 +20,7 @@ matematica.onkeyup=()=>{
 }
 
 lengua.onkeyup=()=>{
-    if(lengua.value>10||lengua.value<0){
+    if(lengua.value>10||lengua.value<0 || isNaN(lengua.value)==true){
         lengua.style.color="red";
         lengua.style.borderColor="red"
         posible = false;
@@ -32,7 +32,7 @@ lengua.onkeyup=()=>{
 }
 
 efsi.onkeyup=()=>{
-    if(efsi.value>10||efsi.value<0){
+    if(efsi.value>10||efsi.value<0 || isNaN(efsi.value)==true){
         efsi.style.color="red";
         efsi.style.borderColor="red"
         posible = false;

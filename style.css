@@ -48,8 +48,11 @@ button:hover {
 #mayoresNotasMateria {
     margin-top: 20px;
 }
-
+.imagen{
+    margin-top: 20px;
+    display: flex;
+justify-content: center;}
 #imagen {
+    height: 200px;
     max-width: 100%;
-    height: auto;
 }

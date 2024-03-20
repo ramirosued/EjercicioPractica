@@ -2,50 +2,42 @@ const matematica=document.getElementById('notaMatematica');
 const lengua=document.getElementById('notaLengua');
 const efsi=document.getElementById('notaEfsi');
 const notas =[matematica,lengua,efsi];
-const resultado=document.getElementById("resultado")
-let mayoresNotasMateria=document.getElementById("mayoresNotasMateria")
+const resultado=document.getElementById('resultado');
+let mayoresNotasMateria=document.getElementById("mayoresNotasMateria");
 
-let validacion1 =  validar1 = (nota)=>{
-    if(nota.value>10||nota.value<0) {
-        alert('Los numeros son incorrectos');
-        validacion1 = false;
-    }else validacion1= true
-    return validacion1;
+let posible;
+matematica.onkeyup=()=>{
+    if(matematica.value>10||matematica.value<0){
+        matematica.style.color="red";
+        posible = false;
+    }else{
+        matematica.style.color="green" ;
+        posible =true;
+    } 
 }
-let validacion2 =  validar2 = (nota)=>{
-    if(nota.value>10||nota.value<0) {
-        alert('Los numeros son incorrectos');
-        validacion2 = false;
-    }else validacion2= true
-    return validacion2;
+
+lengua.onkeyup=()=>{
+    if(lengua.value>10||lengua.value<0){
+        lengua.style.color="red";
+        posible = false;
+    }else{
+        lengua.style.color="green" ;
+        posible =true;
+    } 
 }
-let validacion3 =  validar3 = (nota)=>{
-    if(nota.value>10||nota.value<0) {
-        alert('Los numeros son incorrectos');
-        validacion3 = false;
-    }else validacion3= true
-    return validacion3;
+
+efsi.onkeyup=()=>{
+    if(efsi.value>10||efsi.value<0){
+        efsi.style.color="red";
+        posible = false;
+    }else{
+        efsi.style.color="green" ;
+        posible =true;
+    } 
 }
-/*
-matematica.addEventListener("keyup"),
-
-function mateinfo()
-{
-    matematica = matematica.value
-    if(matematica > 10)
-    {
-
-    }
-}*/
-
-
 document.getElementById("botonPromedio").onclick = () => {
 let promedio;
-validar1(matematica);
-validar2(lengua);
-validar3(efsi);
-
-if(validacion1===true && validacion2===true && validacion3===true){
+if(posible===true){
     if(matematica.value.length==0||lengua.value.length==0||efsi.value.length==0){
         alert('Los campos deben estar completos');
     } else
@@ -64,32 +56,33 @@ if(validacion1===true && validacion2===true && validacion3===true){
 
 document.getElementById("botonMayorNota").onclick = () => {
     let Materias= "La materia con mayor nota es: ";
-    validar1(matematica);
-    validar2(lengua);
-    validar3(efsi);
-    if(validacion1===true && validacion2===true && validacion3===true){
-
-    if(matematica.value>=lengua.value && matematica.value>=efsi.value)
-    {
-       Materias += "Matematica"
-       if(lengua.value>=matematica.value && lengua.value>=efsi.value)
-       {
-        Materias +=", lengua"
-        if(matematica.value===efsi.value)
-        {
-            Materias += ", efsi"
+    if(posible===true){
+    if(matematica.value.length==0||lengua.value.length==0||efsi.value.length==0){
+            alert('Los campos deben estar completos');
+        } else{
+            if(matematica.value>=lengua.value && matematica.value>=efsi.value)
+            {
+               Materias += "Matematica"
+               if(lengua.value>=matematica.value && lengua.value>=efsi.value)
+               {
+                Materias +=", lengua"
+                if(matematica.value===efsi.value)
+                {
+                    Materias += ", efsi"
+                }
+               }else if(matematica.value===efsi.value){
+                Materias += ", efsi"
+               }
+            }   else if(lengua.value>=efsi.value)
+            {
+                Materias +="Lengua"
+                if(lengua.value===efsi.value)
+                {
+                    Materias += ", efsi"
+                }
+            }else Materias += "Efsi"
         }
-       }else if(matematica.value===efsi.value){
-        Materias += ", efsi"
-       }
-    }   else if(lengua.value>=efsi.value)
-    {
-        Materias +="Lengua"
-        if(lengua.value===efsi.value)
-        {
-            Materias += ", efsi"
-        }
-    }else Materias += "Efsi"
+    
     mayoresNotasMateria.innerText=Materias;
     mayoresNotasMateria.style.color="blue";
 }
